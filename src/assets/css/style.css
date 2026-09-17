@@ -1,0 +1,1673 @@
+/* =========================================================
+   GLOBAL RESET + COLOUR PALETTE
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Main palette */
+  --sage: #9caf88;
+  --sage-light: #b7c99e;
+  --sage-dark: #849a76;
+  --sage-deep: #65775a;
+
+  /* Backgrounds */
+  --black: #0b0e0a;
+  --dark: #11150f;
+  --dark-2: #161b14;
+  --dark-3: #1b2119;
+  --dark-4: #20271d;
+
+  /* Text */
+  --white: #ffffff;
+  --off-white: #f1f3ef;
+  --light-grey: #d5dbd1;
+  --grey: #b9c2b0;
+  --muted: #899286;
+
+  /* Borders */
+  --border: rgba(156, 175, 136, 0.20);
+  --border-soft: rgba(156, 175, 136, 0.12);
+  --border-light: rgba(255, 255, 255, 0.08);
+
+  /* Glow */
+  --sage-glow: rgba(156, 175, 136, 0.25);
+  --sage-glow-strong: rgba(156, 175, 136, 0.45);
+
+  /* General */
+  --transition: 0.3s ease;
+  --radius: 10px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Segoe UI', sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px 40px;
+
+  background: rgba(11, 14, 10, 0.88);
+
+  border-bottom: 1px solid rgba(156, 175, 136, 0.15);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.22);
+
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.navbar:hover {
+  background: rgba(11, 14, 10, 0.94);
+
+  border-bottom-color: rgba(156, 175, 136, 0.25);
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+  color: var(--sage);
+
+  font-family: 'Poppins', sans-serif;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
+  text-decoration: none;
+
+  transition:
+    color var(--transition),
+    text-shadow var(--transition),
+    transform var(--transition);
+}
+
+.logo:hover {
+  color: var(--sage-light);
+
+  text-shadow:
+    0 0 18px rgba(156, 175, 136, 0.35);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   NAVIGATION LINKS
+   ========================================================= */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-links a {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 15px;
+
+  color: var(--light-grey);
+
+  font-size: 15px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  border-radius: 7px;
+
+  transition:
+    color var(--transition),
+    background var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+
+/* Remove the old underline from all nav buttons */
+
+.nav-links a::after {
+  display: none;
+}
+
+
+/* Normal hover */
+
+.nav-links a:hover {
+  color: var(--sage-light);
+
+  background: rgba(10, 19, 0, 0.07);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   HOME NAV BUTTON
+   ========================================================= */
+
+.nav-links a.nav-home {
+  color: var(--sage-light);
+
+  background: rgba(156, 175, 136, 0.09);
+
+  border: 1px solid rgba(156, 175, 136, 0.18);
+
+  box-shadow:
+    inset 0 0 15px rgba(156, 175, 136, 0.025);
+}
+
+.nav-links a.nav-home:hover {
+  color: var(--dark);
+
+  background: var(--sage);
+
+  border-color: var(--sage);
+
+  box-shadow:
+    0 0 16px rgba(156, 175, 136, 0.25);
+}
+
+
+/* =========================================================
+   ABOUT / SKILLS / PROJECT NAV BUTTONS
+   ========================================================= */
+
+.nav-links a.nav-about,
+.nav-links a.nav-skills,
+.nav-links a.nav-projects {
+  border: 1px solid transparent;
+}
+
+.nav-links a.nav-about:hover,
+.nav-links a.nav-skills:hover,
+.nav-links a.nav-projects:hover {
+  border-color: rgba(156, 175, 136, 0.15);
+}
+
+
+/* =========================================================
+   CONTACT NAV BUTTON
+   ========================================================= */
+
+.nav-links a.nav-contact {
+  margin-left: 8px;
+
+  padding: 9px 19px;
+
+  color: var(--dark);
+
+  background: var(--sage);
+
+  border: 1px solid var(--sage);
+
+  border-radius: 7px;
+
+  font-weight: 650;
+
+  box-shadow:
+    0 0 12px rgba(156, 175, 136, 0.12);
+
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.nav-links a.nav-contact:hover {
+  color: var(--black);
+
+  background: var(--sage-light);
+
+  border-color: var(--sage-light);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 15px rgba(156, 175, 136, 0.30),
+    0 0 30px rgba(156, 175, 136, 0.10);
+}
+
+
+/* =========================================================
+   HOME / HERO
+   ========================================================= */
+
+.home {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 80px 20px;
+
+  color: var(--white);
+
+  background-color: #11160f;
+
+  /*
+     Grid is ONLY used on Home and Contact.
+     The soft radial glow prevents the grid from
+     feeling too flat or stuffed.
+  */
+
+  background-image:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(156, 175, 136, 0.10),
+      transparent 45%
+    ),
+    linear-gradient(
+      rgba(60, 80, 50, 0.30) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(60, 80, 50, 0.30) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    100% 100%,
+    60px 60px,
+    60px 60px;
+}
+
+
+/* Subtle vignette */
+
+.home::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 35%,
+      rgba(7, 9, 7, 0.38) 100%
+    );
+}
+
+
+/* Keep content above background */
+
+.home > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
+
+.hero-eyebrow {
+  font-size: 0.85rem;
+
+  letter-spacing: 4px;
+
+  color: var(--sage);
+
+  text-transform: uppercase;
+
+  margin-bottom: 4px;
+}
+
+.hero-eyebrow::after {
+  content: "";
+
+  display: block;
+
+  width: 60px;
+  height: 1px;
+
+  background: var(--sage);
+
+  margin: 12px auto 0;
+
+  box-shadow:
+    0 0 8px rgba(156, 175, 136, 0.35);
+}
+
+.head-one {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+
+  font-weight: 800;
+
+  color: var(--white);
+
+  margin: 16px 0 8px;
+
+  line-height: 1.2;
+
+  letter-spacing: -1px;
+}
+
+.home .head-color {
+  color: var(--sage);
+
+  text-shadow:
+    0 0 20px rgba(156, 175, 136, 0.18);
+}
+
+.head-two {
+  font-size: 1.1rem;
+
+  font-weight: 500;
+
+  color: var(--off-white);
+
+  margin-bottom: 16px;
+}
+
+.home-para {
+  max-width: 600px;
+
+  font-size: 18px;
+
+  color: var(--grey);
+
+  line-height: 1.7;
+
+  margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   SOCIAL MEDIA
+   ========================================================= */
+
+.social-media {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 30px;
+}
+
+.icon-container {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(156, 175, 136, 0.07);
+
+  border: 1px solid rgba(156, 175, 136, 0.16);
+
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.icon-container i {
+  font-size: 1.25rem;
+
+  color: var(--sage);
+
+  transition:
+    color var(--transition),
+    transform var(--transition);
+}
+
+.icon-container:hover {
+  background: var(--sage);
+
+  border-color: var(--sage);
+
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.20),
+    0 0 20px rgba(156, 175, 136, 0.22);
+}
+
+.icon-container:hover i {
+  color: var(--dark);
+
+  transform: scale(1.05);
+}
+
+
+/* =========================================================
+   HOME BUTTON GROUP
+   ========================================================= */
+
+.home-buttons {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   COMMON BUTTON STYLE
+   ========================================================= */
+
+.home button,
+.home .btn,
+.home a.button,
+.contact-btn,
+.about-btn,
+.resume-btn,
+#send {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+
+   margin: 6px auto 0; 
+
+   width: 60%;
+
+  gap: 8px;
+
+  border-radius: 7px;
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+
+/* =========================================================
+   ABOUT BUTTON
+   ========================================================= */
+
+.resume-btn {
+  padding: 12px 30px;
+
+  color: var(--dark);
+
+  background: var(--sage);
+
+  border: 1px solid var(--sage);
+
+  box-shadow:
+    0 0 12px rgba(156, 175, 136, 0.18);
+}
+
+.resume-btn:hover {
+  background: var(--sage-light);
+
+  border-color: var(--sage-light);
+
+  color: var(--black);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.18),
+    0 0 25px rgba(156, 175, 136, 0.28);
+}
+
+
+/* =========================================================
+   RESUME BUTTON
+   ========================================================= */
+
+/*
+   HTML:
+   <a href="resume.pdf" class="resume-btn" download>
+      ⬇️ Resume
+   </a>
+*/
+
+.about-btn {
+  padding: 10px 32px;
+
+   white-space: nowrap;
+
+  color: var(--sage-light);
+
+  background: rgba(156, 175, 136, 0.04);
+
+  border: 2px solid var(--sage);
+
+  box-shadow:
+    inset 0 0 15px rgba(156, 175, 136, 0.025);
+}
+
+.about-btn:hover {
+  color: var(--dark);
+
+  background: var(--sage-light);
+
+  border-color: var(--sage-light);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.18),
+    0 0 25px rgba(156, 175, 136, 0.30);
+}
+
+
+
+/* =========================================================
+   ABOUT SECTION
+   ========================================================= */
+
+.about {
+  position: relative;
+
+  padding: 90px 40px;
+
+  text-align: center;
+
+  color: var(--white);
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(156, 175, 136, 0.045),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      #0c0f0b 0%,
+      #10140e 50%,
+      #0b0e0a 100%
+    );
+
+  border-top: 1px solid var(--border-soft);
+}
+
+.about-title,
+.skills-title {
+  font-size: 2.5rem;
+
+  font-weight: 800;
+
+  margin-bottom: 12px;
+}
+
+.head-color {
+  color: var(--sage);
+
+  text-shadow:
+    0 0 18px rgba(156, 175, 136, 0.12);
+}
+
+.about-subtitle {
+  color: var(--light-grey);
+
+  font-size: 1.1rem;
+
+  margin-bottom: 50px;
+}
+
+.about-card {
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  flex-wrap: wrap;
+
+  padding: 40px;
+
+  text-align: left;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(156, 175, 136, 0.045),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition:
+    border-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.about-card:hover {
+  border-color: rgba(156, 175, 136, 0.34);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.30),
+    0 0 30px rgba(156, 175, 136, 0.045);
+}
+
+.about-text {
+  flex: 1 1 500px;
+}
+
+.about-para {
+  font-size: 1.05rem;
+
+  line-height: 1.8;
+
+  color: var(--light-grey);
+}
+
+
+/* =========================================================
+   ABOUT PHOTO
+   ========================================================= */
+
+.about-photo-wrap {
+  flex: 0 0 auto;
+
+  width: 260px;
+  height: 260px;
+
+  padding: 6px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--sage-light),
+      var(--sage-dark)
+    );
+
+  box-shadow:
+    0 0 25px rgba(156, 175, 136, 0.18);
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.about-photo-wrap:hover {
+  transform: scale(1.025);
+
+  box-shadow:
+    0 0 30px rgba(156, 175, 136, 0.30),
+    0 0 55px rgba(156, 175, 136, 0.10);
+}
+
+.about-photo {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 4px solid var(--black);
+}
+
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+.skills {
+  position: relative;
+
+  padding: 90px 40px;
+
+  text-align: center;
+
+  color: var(--white);
+
+  background:
+    linear-gradient(
+      160deg,
+      #151a13 0%,
+      #11150f 50%,
+      #151a12 100%
+    );
+
+  border-top: 1px solid var(--border-soft);
+}
+
+.skills-subtitle {
+  color: var(--light-grey);
+
+  font-size: 1.1rem;
+
+  margin-bottom: 50px;
+}
+
+.skills-section-head {
+  font-size: 1.4rem;
+
+  font-weight: 700;
+
+  color: var(--off-white);
+
+  margin: 40px 0 24px;
+}
+
+.skills-grid {
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(7, 2fr);
+
+  gap: 16px;
+}
+
+.skill-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(29, 35, 26, 0.90),
+      rgba(20, 25, 18, 0.90)
+    );
+
+  border: 1px solid var(--border);
+
+  border-radius: 11px;
+
+  padding: 24px 12px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 12px;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    background var(--transition),
+    box-shadow var(--transition);
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(156, 175, 136, 0.50);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(34, 42, 30, 0.95),
+      rgba(25, 31, 22, 0.95)
+    );
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.25),
+    0 0 20px rgba(156, 175, 136, 0.07);
+}
+
+.skill-icon {
+  font-size: 2.2rem;
+
+  color: var(--sage);
+
+  transition:
+    transform var(--transition),
+    filter var(--transition);
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.08);
+
+  filter:
+    drop-shadow(
+      0 0 8px rgba(156, 175, 136, 0.35)
+    );
+}
+
+.skill-name {
+  font-size: 0.95rem;
+
+  color: var(--light-grey);
+}
+
+
+/* =========================================================
+   PROJECTS
+   ========================================================= */
+
+/*
+   No grid and no dot pattern here.
+   Instead, a subtle layered background gives the section
+   separation without making it visually heavy.
+*/
+
+.project {
+  position: relative;
+
+  padding: 90px 40px;
+
+  color: var(--white);
+
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(156, 175, 136, 0.055),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #0b0e0a 0%,
+      #121710 50%,
+      #0d110c 100%
+    );
+
+  border-top: 1px solid var(--border-soft);
+}
+
+.project-head {
+  font-size: 2.2rem;
+
+  font-weight: 800;
+
+  text-decoration: underline;
+
+  text-decoration-color: var(--sage);
+
+  text-decoration-thickness: 2px;
+
+  text-underline-offset: 8px;
+
+  margin-bottom: 50px;
+}
+
+.project-row {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+
+  text-decoration: none;
+  color: inherit;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+  border: none;
+
+  text-align: left;
+  font: inherit;
+
+  cursor: pointer;
+}
+
+.project-row:hover {
+  background: rgba(156, 175, 136, 0.035);
+
+  border-bottom-color: rgba(156, 175, 136, 0.38);
+
+  transform: translateX(3px);
+
+  padding-left: 18px;
+}
+
+
+/* =========================================================
+   PROJECT IMAGE
+   ========================================================= */
+
+.project-image-wrap {
+  position: relative;
+
+  flex: 0 0 260px;
+
+  height: 210px;
+
+  overflow: hidden;
+
+  border-radius: 9px;
+
+  background: var(--dark-2);
+
+  border: 1px solid var(--border);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.18);
+
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.project-image {
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.project-image-wrap:hover {
+  border-color: rgba(156, 175, 136, 0.35);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+.project-image-wrap:hover .project-image {
+  transform: scale(1.05);
+}
+
+
+.project-cta {
+  display: inline-block;
+
+  margin-top: 12px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color:var(--sage);
+
+  transition: transform 0.2s ease;
+}
+
+.project-row:hover .project-cta {
+  transform: translateX(4px);
+}
+
+
+
+/* =========================================================
+   PROJECT OVERLAY
+   ========================================================= */
+
+.project-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  background: rgba(10, 13, 9, 0.82);
+
+  opacity: 0;
+
+  transition: opacity var(--transition);
+}
+
+.project-image-wrap:hover .project-overlay {
+  opacity: 1;
+}
+
+.overlay-tag {
+  padding: 4px 12px;
+
+  color: var(--sage);
+
+  border: 1px solid var(--sage);
+
+  border-radius: 20px;
+
+  font-size: 0.8rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+
+  box-shadow:
+    0 0 12px rgba(156, 175, 136, 0.12);
+}
+
+
+/* =========================================================
+   PROJECT TEXT
+   ========================================================= */
+
+.project-sub {
+  flex: 1;
+
+  margin: 0;
+  padding: 0 0 0 30px;
+}
+
+
+
+.project-sub h3 {
+  font-size: 1.3rem;
+
+  color: var(--off-white);
+
+  margin-bottom: 10px;
+
+  transition: color var(--transition);
+}
+
+.project-row:hover .project-sub h3 {
+  color: var(--sage-light);
+}
+
+.project-sub p {
+  color: var(--grey);
+
+  line-height: 1.7;
+
+  font-size: 0.95rem;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.tech-badge {
+  padding: 5px 11px;
+  border: 1px solid var(--accent-color);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent-color);
+  background: transparent;
+}
+
+/* =========================================================
+   PROJECT ARROW
+   ========================================================= */
+
+/* .project-arrow {
+  flex: 0 0 auto;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: var(--sage);
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  font-size: 1.2rem;
+
+  transition:
+    background var(--transition),
+    color var(--transition),
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+} */
+
+.project-row-button {
+  appearance: none;
+  -webkit-appearance: none;
+
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  background: transparent;
+  border: none;
+
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+
+.project-row-button:focus {
+  outline: 2px solid #5ee3a5;
+  outline-offset: 2px;
+}
+
+.project-row + .project-row {
+  margin-top: 30px;
+}
+
+
+/
+/* =========================================================
+   GENERAL FOCUS ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--sage-light);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .navbar {
+    padding: 16px 25px;
+  }
+
+  .nav-links {
+    gap: 4px;
+  }
+
+  .nav-links a {
+    padding: 8px 11px;
+
+    font-size: 15px;
+  }
+
+  .nav-links a.nav-contact {
+    margin-left: 5px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  /* Navbar */
+
+  .navbar {
+    padding: 15px 20px;
+
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .nav-links {
+    width: 100%;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 5px;
+  }
+
+  .nav-links a {
+    padding: 7px 10px;
+
+    font-size: 14px;
+  }
+
+  .nav-links a.nav-contact {
+    margin-left: 4px;
+
+    padding: 8px 14px;
+  }
+
+
+  /* Sections */
+
+  .about,
+  .skills,
+  .project {
+    padding: 65px 20px;
+  }
+
+
+  /* About */
+
+  .about-card {
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 30px 20px;
+  }
+
+  .about-photo-wrap {
+    width: 220px;
+    height: 220px;
+  }
+
+
+  /* Projects */
+
+  .project-row {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 25px 8px;
+  }
+
+  .project-image-wrap {
+  position: relative;
+
+  flex: 0 0 260px;
+  width: 260px;
+  height: 210px;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+  .project-arrow {
+    align-self: flex-end;
+  }
+
+
+  /* Hero */
+
+  .home {
+    padding: 70px 20px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 550px) {
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+  }
+
+  .head-one {
+    font-size: clamp(2.2rem, 12vw, 3.2rem);
+  }
+
+  .home-para {
+    font-size: 16px;
+  }
+
+  .about-title,
+  .skills-title {
+    font-size: 2.1rem;
+  }
+
+  .project-head {
+    font-size: 2rem;
+  }
+
+  .home-buttons {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .about-btn,
+  .resume-btn,
+  .contact-btn {
+    width: auto;
+
+    min-width: 160px;
+  }
+
+  .project-image-wrap {
+    height: 190px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* CONTACT */
+
+/* =========================================================
+   CONTACT SECTION — two-column layout
+   ========================================================= */
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr; /* Creates a modern, relaxed split layout */
+  gap: 60px; /* Replaces borders with clean, open white-space */
+  
+  max-width: 1000px;
+  width: calc(100% - 40px);
+  margin: 0 auto 60px;
+  padding: 40px 0; /* Padding moves inside to keep content structured */
+  
+  /* REMOVED: background linear-gradient, border, box-shadow, and backdrop-filters */
+  overflow: hidden;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 24px; /* Increased gap slightly for better breathing room */
+  text-align: left;
+  
+  /* REMOVED: background color and right border lines */
+}
+
+/* Styled specifically as a clean page title for Approach B */
+.contact-info h3 {
+  font-size: 2.2rem; /* Made larger to serve as the main page focal point */
+  color: var(--sage); /* Shifted to your accent color so it pops immediately */
+  font-weight: 700;
+  margin: 0;
+}
+
+.contact-info p {
+  font-size: 0.95rem;
+  color: var(--grey);
+  line-height: 1.75;
+  text-align: left;
+  margin: 0;
+}
+
+.contact-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+/* Updated link selector to support interactive hovers for recruiters */
+.contact-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.92rem;
+  color: var(--light-grey);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a.contact-detail-item:hover {
+  color: var(--sage);
+}
+
+/* Styles your inline SVG icons cleanly */
+.contact-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--sage);
+  flex-shrink: 0;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem; /* Slightly loosened up the form row spacing */
+  
+  /* REMOVED: inner box paddings */
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* =========================================================
+   CONTACT INPUTS (Preserved your excellent input glow states!)
+   ========================================================= */
+
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  color: var(--off-white);
+  background: rgba(8, 11, 8, 0.85);
+  border: 1px solid rgba(156, 175, 136, 0.12);
+  border-radius: 7px;
+  outline: none;
+  font-size: 0.95rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition:
+    border-color var(--transition),
+    background var(--transition),
+    box-shadow var(--transition);
+}
+
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+  color: var(--muted);
+}
+
+.contact-input:hover,
+.contact-textarea:hover {
+  border-color: rgba(156, 175, 136, 0.28);
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+  background: rgba(17, 22, 15, 0.95);
+  border-color: var(--sage);
+  box-shadow:
+    0 0 0 3px rgba(156, 175, 136, 0.07),
+    0 0 18px rgba(156, 175, 136, 0.07);
+}
+
+.name-email-row {
+  display: flex;
+  gap: 16px;
+}
+
+.name-email-row .field-group {
+  flex: 1;
+}
+
+.contact-textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* =========================================================
+   SEND BUTTON
+   ========================================================= */
+
+#send-btn {
+  align-self: stretch;
+  padding: 14px 36px;
+  width: 100%;
+  color: var(--dark);
+  background: var(--sage);
+  border: 1px solid var(--sage);
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+#send-btn:hover:not(:disabled) {
+  color: var(--black);
+  background: var(--sage-light);
+  border-color: var(--sage-light);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.20),
+    0 0 20px rgba(156, 175, 136, 0.25);
+}
+
+#send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   RESPONSIVE — clean stacking on mobile
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr; /* Drops down to a single clean column */
+    gap: 40px;
+    padding: 20px 0;
+  }
+
+  .contact-info h3 {
+    font-size: 1.8rem; /* Keeps header size controlled on mobile screens */
+  }
+
+  .name-email-row {
+    flex-direction: column;
+    gap: 1.3rem;
+  }
+  
+}
