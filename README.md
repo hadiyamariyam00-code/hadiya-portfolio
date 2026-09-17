@@ -1,4 +1,4 @@
-# Hadiya's Portfolio
+# My Portfolio
 
 A personal portfolio website built with React, showcasing my projects, skills, and background as an aspiring Software Developer.
 
