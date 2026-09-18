@@ -2,7 +2,7 @@
 
 A personal portfolio website built with React, showcasing my projects, skills, and background as an aspiring Software Developer.
 
-🔗 **Live site:** [hadiya-personal-portfolio.vercel.app]
+🔗 **Live site:** (hadiya-personal-portfolio.vercel.app)
 
 ## About
 
